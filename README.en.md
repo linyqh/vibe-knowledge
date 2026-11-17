@@ -1,0 +1,116 @@
+<div align="center">
+
+# vibe-knowledge
+
+**One idea → one narrated, fully sourced, cinematic explainer short.**<br>
+A Claude Code skill that takes a topic through research → script → voice → code-rendered video (1080p60) → QA → publishing kit, all inside the chat.
+
+[![MIT](https://img.shields.io/badge/license-MIT-2f7d4f)](LICENSE) [![Claude Code skill](https://img.shields.io/badge/Claude%20Code-skill-d97757)](skills/vibe-knowledge/SKILL.md) [![Renoise MCP](https://img.shields.io/badge/video-Renoise%20MCP-ff7a1a)](https://renoise.ai/mcp?utm_medium=xcom&utm_source=official)
+
+<sub>Based on <a href="https://github.com/andyhuo520/vibe-knowledge">andyhuo520/vibe-knowledge</a> by <a href="https://x.com/berryxia">@Berryxia</a>, maintained by <a href="https://github.com/linyqh">@linyqh</a>. This fork runs voice-over locally in BreezeCast, word alignment and read-back QA locally in Murmur, and changes BGM only from your own file or local Songhearth: no cloud speech service or API key. See the <a href="skills/vibe-knowledge/CHANGELOG.md">CHANGELOG</a>.</sub>
+
+[中文](README.md) · [Samples](#samples) · [Styles](#44-styles--8-families) · [Audio](#default-bgm) · [Renoise](#renoise-the-generation-platform-for-the-enhanced-tier) · [Install](#install)
+
+<img src="docs/style-flash.gif" width="720" alt="style flash reel">
+
+<sub>Excerpt of the style flash reel. Full 42 s: <a href="https://github.com/andyhuo520/vibe-knowledge/releases/download/v1.0.0/style-flash-42s.mp4">style-flash-42s.mp4</a></sub>
+
+</div>
+
+---
+
+## Samples
+
+Click a poster to play (videos live in the upstream repo's [Release v1.0.0](https://github.com/andyhuo520/vibe-knowledge/releases/tag/v1.0.0); made by the original author, so the narrator is not this fork's default voice). Narration and captions are in Chinese; labels under each poster give the template · style · tier. Every frame is orchestrated by Claude Opus and rendered frame-by-frame in code; "enhanced" shots use [Renoise](https://renoise.ai/mcp?utm_medium=xcom&utm_source=official) for AI images and motion clips, always labelled as AI illustrations on screen.
+
+<table>
+<tr><td width="50%" valign="top"><a href="https://github.com/andyhuo520/vibe-knowledge/releases/download/v1.0.0/ep04b-no-fridge-gufeng.mp4"><img src="docs/posters/ep04b-no-fridge-gufeng.jpg" width="100%"></a><br><b>如果你活在古代没有冰箱（古风版）</b><br><sub>2:05 · 两难选择片 · 古风 · 增强标准档（Wan 3.0 动态镜头）</sub></td><td width="50%" valign="top"><a href="https://github.com/andyhuo520/vibe-knowledge/releases/download/v1.0.0/ep01-shangyang.mp4"><img src="docs/posters/ep01-shangyang.jpg" width="100%"></a><br><b>商鞅立木：搬一根木头赏五十金，你搬不搬？</b><br><sub>2:32 · 两难选择片 · 古风 · 增强档</sub></td></tr>
+<tr><td width="50%" valign="top"><a href="https://github.com/andyhuo520/vibe-knowledge/releases/download/v1.0.0/ep01-shangyang-base.mp4"><img src="docs/posters/ep01-shangyang-base.jpg" width="100%"></a><br><b>商鞅立木（基础档，0 积分）</b><br><sub>2:32 · 同一份 film.js，代码插画版</sub></td><td width="50%" valign="top"><a href="https://github.com/andyhuo520/vibe-knowledge/releases/download/v1.0.0/ep01-tiers-compare.mp4"><img src="docs/posters/ep01-tiers-compare.jpg" width="100%"></a><br><b>商鞅立木 · 两档上下对比</b><br><sub>2:32 · 基础档 vs 增强档，旁白和脚本完全一样</sub></td></tr>
+<tr><td width="50%" valign="top"><a href="https://github.com/andyhuo520/vibe-knowledge/releases/download/v1.0.0/ep02-paper-to-moon.mp4"><img src="docs/posters/ep02-paper-to-moon.jpg" width="100%"></a><br><b>一张纸折多少次能到月球</b><br><sub>1:10 · 猜谜概念片 · 深色数学 + 尺度穿越 · 增强标准档</sub></td><td width="50%" valign="top"><a href="https://github.com/andyhuo520/vibe-knowledge/releases/download/v1.0.0/ep03-money-laundering.mp4"><img src="docs/posters/ep03-money-laundering.jpg" width="100%"></a><br><b>什么是洗钱</b><br><sub>1:31 · 痛点原理片 · 半调拼贴 · 增强轻档</sub></td></tr>
+<tr><td width="50%" valign="top"><a href="https://github.com/andyhuo520/vibe-knowledge/releases/download/v1.0.0/ep04-no-fridge.mp4"><img src="docs/posters/ep04-no-fridge.jpg" width="100%"></a><br><b>如果你活在古代没有冰箱</b><br><sub>3:12 · 猜谜概念片 · 星空光点 · 基础档 0 积分（同一选题的另一种讲法）</sub></td><td width="50%" valign="top"><a href="https://github.com/andyhuo520/vibe-knowledge/releases/download/v1.0.0/ep05-rocket.mp4"><img src="docs/posters/ep05-rocket.jpg" width="100%"></a><br><b>火箭怎么飞上天</b><br><sub>1:46 · 猜谜概念片 · 蓝图专利图 · 增强标准档</sub></td></tr>
+</table>
+
+Style reels (each style performs the same opening, for side-by-side comparison):
+
+- [最早 7 套（古风、星空光点、暗金线描、水墨纸本、像素、字幕新闻、视觉调查）](https://github.com/andyhuo520/vibe-knowledge/releases/download/v1.0.0/styles-01-core7.mp4)
+- [剪辑与纪实](https://github.com/andyhuo520/vibe-knowledge/releases/download/v1.0.0/styles-02-edit-doc.mp4)
+- [补空白家族 8 套](https://github.com/andyhuo520/vibe-knowledge/releases/download/v1.0.0/styles-03.mp4)
+- [增强档：敦煌、青花、木刻、半调拼贴](https://github.com/andyhuo520/vibe-knowledge/releases/download/v1.0.0/styles-04-enhanced.mp4)
+- [第五批 8 套](https://github.com/andyhuo520/vibe-knowledge/releases/download/v1.0.0/styles-05.mp4)
+- [第六批 8 套](https://github.com/andyhuo520/vibe-knowledge/releases/download/v1.0.0/styles-06.mp4)
+- [增强档：长卷、铜版博物](https://github.com/andyhuo520/vibe-knowledge/releases/download/v1.0.0/styles-07-enhanced.mp4)
+- [田园像素](https://github.com/andyhuo520/vibe-knowledge/releases/download/v1.0.0/styles-08-farm-pixel.mp4)
+- [第九批 5 套](https://github.com/andyhuo520/vibe-knowledge/releases/download/v1.0.0/styles-09.mp4)
+- [手绘过程（手 + 笔画给你看）](https://github.com/andyhuo520/vibe-knowledge/releases/download/v1.0.0/styles-10-sketch.mp4)
+
+## 44 styles · 8 families
+
+<img src="docs/style-wall.jpg" alt="44 styles">
+
+| Family | Count | Styles (each STYLE.md covers palette, type, camera language, best-fit topics) |
+|---|---|---|
+| Eastern | 7 | [Gufeng](skills/vibe-knowledge/styles/gufeng/STYLE.md), [Ink & Paper](skills/vibe-knowledge/styles/paper/STYLE.md), [Dunhuang Mural](skills/vibe-knowledge/styles/dunhuang/STYLE.md), [Blue & White](skills/vibe-knowledge/styles/qinghua/STYLE.md), [Woodcut](skills/vibe-knowledge/styles/woodcut/STYLE.md), [Minimal Zen](skills/vibe-knowledge/styles/minimal/STYLE.md), [Handscroll](skills/vibe-knowledge/styles/scroll/STYLE.md) |
+| Dark concept | 7 | [Starfield](skills/vibe-knowledge/styles/starfield/STYLE.md), [Dark Gold](skills/vibe-knowledge/styles/darkgold/STYLE.md), [Dark Math](skills/vibe-knowledge/styles/darkmath/STYLE.md), [Neon Cyber](skills/vibe-knowledge/styles/neon/STYLE.md), [Keynote](skills/vibe-knowledge/styles/keynote/STYLE.md), [Aurora Glass](skills/vibe-knowledge/styles/aurora/STYLE.md), [Art Deco](skills/vibe-knowledge/styles/deco/STYLE.md) |
+| Game | 4 | [Pixel](skills/vibe-knowledge/styles/pixel/STYLE.md), [Rpg Dialogue](skills/vibe-knowledge/styles/rpg/STYLE.md), [Card Battle](skills/vibe-knowledge/styles/cards/STYLE.md), [Cozy Farm](skills/vibe-knowledge/styles/farm/STYLE.md) |
+| Editorial & documentary | 5 | [Caption News](skills/vibe-knowledge/styles/caption-news/STYLE.md), [Visual Investigation](skills/vibe-knowledge/styles/investigation/STYLE.md), [Retro Desktop](skills/vibe-knowledge/styles/desktop/STYLE.md), [Light Table](skills/vibe-knowledge/styles/lighttable/STYLE.md), [Tv News](skills/vibe-knowledge/styles/tvnews/STYLE.md) |
+| Bright pop | 5 | [Variety Captions](skills/vibe-knowledge/styles/variety/STYLE.md), [Memphis Pop](skills/vibe-knowledge/styles/memphis/STYLE.md), [Bullet Journal](skills/vibe-knowledge/styles/journal/STYLE.md), [Vaporwave](skills/vibe-knowledge/styles/vapor/STYLE.md), [Clay Kawaii](skills/vibe-knowledge/styles/clay/STYLE.md) |
+| Diagram & design | 8 | [Chalkboard](skills/vibe-knowledge/styles/chalk/STYLE.md), [Blueprint](skills/vibe-knowledge/styles/blueprint/STYLE.md), [Isometric](skills/vibe-knowledge/styles/isometric/STYLE.md), [Swiss Kinetic](skills/vibe-knowledge/styles/swiss/STYLE.md), [Metro Map](skills/vibe-knowledge/styles/metro/STYLE.md), [Isotype](skills/vibe-knowledge/styles/isotype/STYLE.md), [Copperplate](skills/vibe-knowledge/styles/copper/STYLE.md), [Hand-Drawn Process](skills/vibe-knowledge/styles/sketch/STYLE.md) |
+| Print & paper | 5 | [Risograph](skills/vibe-knowledge/styles/riso/STYLE.md), [Halftone Collage](skills/vibe-knowledge/styles/collage/STYLE.md), [Ransom Note](skills/vibe-knowledge/styles/ransom/STYLE.md), [Editorial](skills/vibe-knowledge/styles/editorial/STYLE.md), [Park Poster](skills/vibe-knowledge/styles/poster/STYLE.md) |
+| Cinematic | 3 | [Title Sequence](skills/vibe-knowledge/styles/titles/STYLE.md), [Silent Film](skills/vibe-knowledge/styles/silent/STYLE.md), [Constructivist](skills/vibe-knowledge/styles/constructivist/STYLE.md) |
+
+## Default BGM
+
+The default narrator is the BreezeCast-designed AI voice "AI博主沉稳男声" (not a real person), created locally on first use (see Install below); only the default BGM is shown here.
+
+- [vibe-bgm.m4a](skills/vibe-knowledge/assets/music/vibe-bgm.m4a): the default BGM. It is **mandatory**: the mixer auto-fits it to the film length, disables other full-length scores, and calibrates it to sit 10 dB under the voice while speaking. Swapping it requires an explicit user request (`bgm: true, user_request: "..."`), and there are exactly two sources: an audio file you provide, or a track generated locally by Songhearth. Both go through `tools/swap_bgm.py` (`--file song.mp3` or `--songhearth "english style tags"`), which writes `bgm_user.wav`.
+
+## How an episode is made
+
+Pick a topic → choose one of 6 narrative templates, a **length** (four tiers from 45 s to 5 min, each stating how deep it can go and what gets cut), a style and a tier → sourced fact sheet → script + adversarial review → BreezeCast local voice with word-level alignment → `film.js` with the `know.js` component kit → frame-by-frame render → mix (mandatory BGM) → cover as first frame → QA (contact sheet, OCR read-back vs facts, loudness, freeze detection, BGM detection) → publishing kit. Three explicit user checkpoints; any paid generation is quoted first.
+
+Two tiers share one `film.js`: **base** (0 credits: hand-written SVG layers, particles, data components) and **enhanced** (only the shots code can't do well go to Renoise).
+
+## Renoise: the generation platform for the enhanced tier
+
+**[Renoise](https://renoise.ai/mcp?utm_medium=xcom&utm_source=official)** is an AI video, image and audio generation platform that plugs straight into Claude Code, Codex and other agents over MCP. One account gives you Midjourney, GPT Image, Nano Banana, Seedance 2.5, Wan 3.0, Kling, Grok Video, Lyria, ElevenLabs SFX and more, right inside the chat.
+
+vibe-knowledge only uses it for the **enhanced tier**, for the few shots code can't do well: realistic period scenes, the one to three motion shots viewers should remember, and the occasional sound effect. Everything else is still drawn in code. **The base tier needs no Renoise at all and costs 0 credits.**
+
+- **Quote first, generate only on your OK**: every episode lists shots, models, prompts and the `estimate_cost` total, and nothing is submitted until you approve in the chat.
+- **Predictable cost**: episode 01 (enhanced) used 246 credits (10 Midjourney images, 2 Wan motion shots, music, 5 SFX). Enhanced levels are roughly light ≈25–40, standard ≈250–300, flagship ≈600–700 credits.
+- Renoise-generated imagery is labelled as an AI illustration on screen.
+
+**No account yet? Sign up at [renoise.ai](https://renoise.ai/mcp?utm_medium=xcom&utm_source=official).** Sign-in happens in the browser; no API key to copy. Then connect your agent:
+
+| Agent | How to connect |
+|---|---|
+| **Claude Code** | `/plugin marketplace add ArcoCodes/renoise-plugins-official`, then `/plugin install renoise@renoise-plugins-official` (browser sign-in on first use) |
+| **Claude desktop / claude.ai** | Settings → Connectors → **Add custom connector** → name `Renoise`, URL `https://renoise.ai/api/public/mcp` |
+| **Codex** | `codex mcp add renoise --url https://renoise.ai/api/public/mcp`, then `codex mcp login renoise` |
+| **OpenClaw** | `openclaw plugins install renoise --marketplace ArcoCodes/renoise-plugins-official` |
+| **Cursor, Windsurf, Cline and other remote-MCP clients** | Add a remote MCP server at `https://renoise.ai/api/public/mcp` (typically `{"mcpServers":{"renoise":{"url":"https://renoise.ai/api/public/mcp"}}}`) |
+
+Latest instructions: [renoise.ai/plugin](https://renoise.ai/plugin). Once connected, ask your agent "check my Renoise balance" to confirm.
+
+## Install
+
+```bash
+git clone https://github.com/linyqh/vibe-knowledge.git
+cp -R vibe-knowledge/skills/vibe-knowledge vibe-knowledge/skills/ai-teardown ~/.claude/skills/
+```
+
+Requirements: a Python with `numpy scipy pillow playwright` (set `CINE_PY`), `ffmpeg`, macOS Vision + `swiftc` for OCR QA, the local Murmur app (word-level alignment and read-back QA: Murmur open, API service enabled on its 「API 接口」 page at 127.0.0.1:7895, a model with word timestamps such as Qwen3-ASR loaded; it must run on the same Mac as the scripts, since file paths are passed, not uploaded; no key needed), and optionally the Renoise MCP for the enhanced tier (see [Renoise](#renoise-the-generation-platform-for-the-enhanced-tier) above).
+
+Voice: narration runs locally in BreezeCast (BreezeTTS 2): no API key, 0 cost. Keep the BreezeCast app open with the engine ready and a BreezeTTS 2 model installed (default package `breeze_tts_2_q8_0`, 5.1 GB, downloaded from the app). If BreezeCast runs on another Mac on your LAN: `export BREEZECAST_URL=http://<IP>:17860`. The repo ships no voice audio; create the default voice once in your own BreezeCast: `python3 ~/.claude/skills/ai-teardown/engine/scripts/voice_audition.py ~/.claude/skills/vibe-knowledge/assets/voice/default-voice.json <audition-dir>` generates a few takes, listen and pick one, then re-run with `--save <take id> --name AI博主沉稳男声` to save it as a BreezeCast voice. To use your own voice, clone it in BreezeCast first (in the app, or with the breezecast skill: `voice-clone --name X --audio ref.wav --ref-text "exact transcript"`; a clean single-speaker recording of 3–20 s, transcript word for word; only your own or explicitly authorized voice), then `new_film.py … --voice X`.
+
+Then ask Claude Code: *"Make a Vibe knowledge episode: why does the digit 1 give fake books away?"*
+
+## Acknowledgements
+
+We studied and learned from open-source projects including lemo-opuscar, huashu-art-motion, paper2video, Paper-Cut, LuZhong-Li/vibe-knowledge-video-skill and earshot. What we took from each one, where it is used and under which licence are listed in [ACKNOWLEDGEMENTS.md](ACKNOWLEDGEMENTS.md). Corrections are welcome via [issues](https://github.com/linyqh/vibe-knowledge/issues).
+
+## License
+
+Code: [MIT](LICENSE), keeping the original author's copyright notice. Sample videos, AI imagery, default BGM and voice: see [NOTICE.md](NOTICE.md). Third-party components: [THIRD_PARTY.md](THIRD_PARTY.md).
+
+Original author [@Berryxia](https://x.com/berryxia) ([andyhuo520/vibe-knowledge](https://github.com/andyhuo520/vibe-knowledge)) · maintained by [@linyqh](https://github.com/linyqh) · orchestrated with Claude Code (Claude Opus)
