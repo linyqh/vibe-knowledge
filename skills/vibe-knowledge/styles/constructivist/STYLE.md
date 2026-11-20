@@ -1,6 +1,6 @@
 # 构成主义蒙太奇 · CONSTRUCTIVIST
 
-> 家族：电影感　|　档位：基础档 · 0 积分　|　风格图：`still.jpg`　|　样片源码：`_samples/styles6_film.js → constructivist()`
+> 家族：电影感　|　档位：基础档 · 0 费用　|　风格图：`still.jpg`　|　样片源码：`_samples/styles6_film.js → constructivist()`
 
 **一句话**：米色纸、红黑斜线构图、半调剪影人群、标语大字沿斜线撞进来、喇叭放射线。
 
@@ -23,4 +23,4 @@
 ## 搭配
 - 适合母版：两难选择 B、痛点原理 C
 - 不适合：温情、治愈
-- 增强档 Renoise 前缀：`（基础档不需要）`
+- 增强档生图前缀：`（基础档不需要）`

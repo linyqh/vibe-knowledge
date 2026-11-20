@@ -23,4 +23,4 @@
 ## 搭配
 - 适合母版：D 一条主线片、F 六面轮转片、诗词类 A
 - 不适合：科技、数据密集的题
-- 增强档 Renoise 前缀：`Chinese ink wash painting on warm rice paper, sparse composition, soft grey washes, a single vermilion accent, no text, no seal`
+- 增强档生图前缀：`Chinese ink wash painting on warm rice paper, sparse composition, soft grey washes, a single vermilion accent, no text, no seal`

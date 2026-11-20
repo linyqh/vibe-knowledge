@@ -9,7 +9,7 @@
 1. 工作区 / 系列不存在就调用 ai-teardown 的 new_series.py --style cine 建好（引擎、字体、渲染工具）。
 2. 把 kit/know.js 装进 <系列>/cine/engine/，给 cine/tools/record.py、stills.py 打补丁：每次 seek 之后 await window.__vk.wait()（等配图、视频帧解码完再截图）。
 3. narration.json 的 voice.voice 写成 BreezeCast 音色名（默认「AI博主沉稳男声」：BreezeCast 设计的 AI 声音，不是真人；第一次用先按 assets/voice/default-voice.json 试听、保存）。
-4. lessons/<期号>/：narration.json（母版旁白骨架）、film.js（画面骨架）、facts.md（事实清单）、assets.json（Renoise 资产清单）、assets/{img,clips,audio}/。
+4. lessons/<期号>/：narration.json（母版旁白骨架）、film.js（画面骨架）、facts.md（事实清单）、assets.json（增强档资产清单：图 / 视频 / 音效）、assets/{img,clips,audio}/。
 """
 import argparse
 import json
@@ -78,8 +78,8 @@ def main():
     shutil.copy(SKILL / "kit/know.js", sd / "cine/engine/know.js")
     patch_tools(sd)
     patch_finish(sd)
+    sys.path.insert(0, str(SKILL / "tools")); import patch_earshot; patch_earshot.patch(sd)   # earshot 代码音效（必须在 BGM 钩子之前：BGM 钩子锚在 earshot 改过的配乐循环上）
     patch_bgm(sd)
-    sys.path.insert(0, str(SKILL / "tools")); import patch_earshot; patch_earshot.patch(sd)   # earshot 代码音效
 
     L = sd / "lessons" / a.id
     if L.exists():

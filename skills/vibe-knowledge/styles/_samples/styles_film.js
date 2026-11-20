@@ -1,4 +1,4 @@
-// 风格样片集：同一段开场（复用第 01 期 B01 旁白），用 5 套视觉系统各演一遍。全部代码画面，0 积分。
+// 风格样片集：同一段开场（复用第 01 期 B01 旁白），用 5 套视觉系统各演一遍。全部代码画面，0 费用。
 import { clamp, lerp, inv, eOutCubic, eInOutCubic, el, css, rng } from "../../cine/engine/util.js";
 import { TH, bg, layers, keyword, counter } from "../../cine/engine/know.js";
 import { SC } from "../01/scenes_base.js";
@@ -161,7 +161,7 @@ export async function build(ctx) {
     const s = el(root, "shot");
     el(s, "abs cn", "left:0;width:1920px;top:300px;text-align:center;font-size:96px;font-weight:900;color:#f6f2ea;", "选哪一套？");
     STY.forEach((st, i) => el(s, "abs cn", `left:${160 + i * 330}px;top:520px;width:290px;padding:22px 0;text-align:center;border-radius:18px;font-size:40px;font-weight:800;color:${st.key === "paper" ? "#2a2420" : "#f6f2ea"};background:#${st.th.bg.toString(16).padStart(6, "0")};border:3px solid ${st.th.accent};`, `${i + 1} ${st.name}`));
-    el(s, "abs cn", "left:0;width:1920px;top:700px;text-align:center;font-size:32px;color:#a8a29a;", "每套都能做基础档（0 积分）或 Renoise 增强档");
+    el(s, "abs cn", "left:0;width:1920px;top:700px;text-align:center;font-size:32px;color:#a8a29a;", "每套都能做基础档（0 费用）或增强档");
     return { s };
   }, (t) => { bg(ctx, TH.starfield, { color: 0x0b0a0c }); });
   return shots;

@@ -16,34 +16,12 @@ import math
 import subprocess
 import sys
 import tempfile
-import time
-import urllib.error
-import urllib.request
 from pathlib import Path
 
-SH_DISCOVERY = Path.home() / "Library/Application Support/com.songhearth.app/api.json"
+from songhearth_api import audio, license_of, run, sh_call
+
 DEFAULT_MODEL = "ace-step-1.5-turbo"
 FADE_OUT = 1.8
-
-
-def sh_call(method, path, body=None, timeout=60, raw=False):
-    cfg = json.loads(SH_DISCOVERY.read_text()) if SH_DISCOVERY.exists() else {}
-    url = (cfg.get("url") or "http://127.0.0.1:17865").rstrip("/")
-    headers = {"Content-Type": "application/json", **({"Authorization": f"Bearer {cfg['token']}"} if cfg.get("token") else {})}
-    req = urllib.request.Request(url + path, method=method, headers=headers,
-                                 data=None if body is None else json.dumps(body, ensure_ascii=False).encode())
-    try:
-        with urllib.request.urlopen(req, timeout=timeout) as r:
-            data = r.read()
-            return data if raw else json.loads(data)
-    except urllib.error.HTTPError as e:
-        try:
-            err = json.loads(e.read()).get("error", {})
-        except ValueError:
-            err = {}
-        sys.exit(f"Songhearth {path}：[{err.get('code', e.code)}] {err.get('message', e.reason)}")
-    except urllib.error.URLError as e:
-        sys.exit(f"连不上 Songhearth（{url}）：{e.reason}。先打开 Songhearth")
 
 
 def probe(path):
@@ -67,7 +45,7 @@ def songhearth(prompt, model, length, seed, out):
     m = sh_call("GET", f"/api/v1/models/{model}")
     if model not in h.get("installedModels", []):
         sys.exit(f"Songhearth 没装 {model}（{m.get('sizeGB')} GB）：先在 Songhearth 里下载，或换 --model（已装：{'、'.join(h.get('installedModels', []))}）")
-    lic = m.get("license") if isinstance(m.get("license"), dict) else {"name": m.get("license"), "commercial": m.get("commercial")}
+    lic = license_of(m)
     if lic.get("commercial") == "no":
         sys.exit(f"{model} 的许可证（{lic.get('name')}）不可商用，成片要发布，换 --model {DEFAULT_MODEL}")
     if not m.get("instrumental"):
@@ -83,16 +61,10 @@ def songhearth(prompt, model, length, seed, out):
     body = {"model": model, "kind": "music", "prompt": prompt, "instrumental": True, "duration": secs, "title": f"vibe-knowledge BGM {secs}s"}
     if seed is not None:
         body["seed"] = seed
-    g = sh_call("POST", "/api/v1/generations", body)
-    t0 = time.time()
-    while g["status"] in ("queued", "running"):
-        print(f"  Songhearth 生成中 {g.get('stage') or g['status']} {g.get('progress', 0):.0%}（{time.time() - t0:.0f}s）", file=sys.stderr)
-        g = sh_call("GET", f"/api/v1/generations/{g['id']}/wait?timeout=600", timeout=660)
-    if g["status"] != "succeeded":
-        sys.exit(f"Songhearth 生成失败（{g['status']}）：{g.get('error')}")
-    out.write_bytes(sh_call("GET", f"/api/v1/generations/{g['id']}/audio", timeout=600, raw=True))
+    g = run(body, "BGM")
+    out.write_bytes(audio(g["id"]))
     return {"model": model, "license": lic.get("name"), "commercial": lic.get("commercial"), "prompt": prompt, "seed": g.get("seed"),
-            "generation_id": g["id"], "output_path": g.get("outputPath"), "wall_s": round(time.time() - t0, 1)}
+            "generation_id": g["id"], "output_path": g.get("outputPath"), "wall_s": g["wall_s"]}
 
 
 def main():

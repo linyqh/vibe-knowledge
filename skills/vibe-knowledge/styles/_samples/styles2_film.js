@@ -1,4 +1,4 @@
-// 风格样片集 · 第二批「剪辑与纪实」：字幕新闻、视觉调查。同一段开场（复用第 01 期 B01 旁白），0 积分。
+// 风格样片集 · 第二批「剪辑与纪实」：字幕新闻、视觉调查。同一段开场（复用第 01 期 B01 旁白），0 费用。
 // 思路参考 Lemo-Opuscar 的「剪辑与纪实」类（字幕新闻 / 视觉调查），实现与描述均为本 skill 原创。
 import { clamp, lerp, eOutCubic, eInOutCubic, el, css } from "../../cine/engine/util.js";
 import { TH, bg, plate, marker, ring, focus, capNews, srcChip, lowerThird } from "../../cine/engine/know.js";

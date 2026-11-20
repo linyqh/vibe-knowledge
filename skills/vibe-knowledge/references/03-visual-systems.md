@@ -2,7 +2,7 @@
 
 每期选一个，写在 film.js 的 `const TM = TH.xxx`，并把对应的画风前缀抄进 assets.json 的 `style_prefix`。
 
-| 系统 | 对标 | 适合 | 底色 / 强调色 | Renoise 画风前缀（英文写给模型） |
+| 系统 | 对标 | 适合 | 底色 / 强调色 | 生图前缀（英文写给模型） |
 |---|---|---|---|---|
 | `starfield` 星空光点 | 电子智人「××之学」 | 抽象概念、信息、数学、宇宙（母版 A） | 深蓝黑 / 金色 #f2c46d | `Cinematic dark night scene, deep navy and black, a single warm golden light source, fine film grain, minimal, vast negative space, no text` |
 | `gufeng` 古风矢量 | Iwanau「如果你活在古代」 | 历史两难（母版 B） | 夜色赭黑 / 朱红 #d9472b + 金 | `Flat vector illustration, Chinese Tang dynasty, simple geometric characters without facial detail, red palace walls and lanterns, muted ink-paper texture, cinematic wide shot, no text` |

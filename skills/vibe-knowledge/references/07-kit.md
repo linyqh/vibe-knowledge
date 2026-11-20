@@ -7,8 +7,8 @@
 | `TH.*` | 五套视觉系统色板 | `const TM = TH.gufeng` |
 | `bg(ctx, TM, o)` | **每个镜头 render 第一行**：清 WebGL 层为主题底色，设泛光 / 颗粒 / 暗角 | `bg(ctx, TM, { grain: 0.03 })` |
 | `layers` | **基础档主力**：Opus 手写 SVG / 本地图分远中近层，按景深视差推移 | `sc = layers(s, [{ svg: SKY, depth: 0.15 }, { svg: HALL, depth: 0.5 }, { svg: FG, depth: 1 }]); sc.update(t, t0, t1, { pan: [-80, 0], zoom: [1, 1.06] })` |
-| `plate` | Renoise 配图：推拉摇移 + 淡入淡出 + 暗角 + AI 角标 | `p = plate(s, { src: A("img/a01.jpg") }); p.update(t, t0, t1, { from: [1.04,0,0], to: [1.14,-40,0] })` |
-| `vclip` | Renoise 视频（clip2frames 拆帧后）逐帧画在画布上，字幕永远在上面 | `v = vclip(s, { dir: A("clips/v01"), n: 241 }); v.update(t, t0, t1, { rate: 1, loop: false })` |
+| `plate` | 生图（generate_image）配图：推拉摇移 + 淡入淡出 + 暗角 + AI 角标 | `p = plate(s, { src: A("img/a01.jpg") }); p.update(t, t0, t1, { from: [1.04,0,0], to: [1.14,-40,0] })` |
+| `vclip` | 动态镜头（xai_generate_video，clip2frames 拆帧后）逐帧画在画布上，字幕永远在上面 | `v = vclip(s, { dir: A("clips/v01"), n: 241 }); v.update(t, t0, t1, { rate: 1, loop: false })` |
 | `keyword` | 画面关键词（≤8 字，超了控制台警告） | `k = keyword(s, "冗余＝铠甲", { y: 400, color: TM.accent }); k.update(t, at, out)` |
 | `counter` | 数字滚动 | `c = counter(s, { label: "放回家的死囚", suffix: "人" }); c.update(t, [[t0,0],[t1,83],[t2,390]])` |
 | `foot` / `foots` | 出处脚注（字幕下方 y=1044） | `f = foot(s); foots(f, t, [[a, b, "《资治通鉴》卷一九四"], …])` |

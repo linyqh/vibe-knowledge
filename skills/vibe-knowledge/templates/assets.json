@@ -1,9 +1,9 @@
 {
- "_how": "每期的 Renoise 资产清单。先填 items → 按 references/04-renoise.md 选模型、写提示词 → estimate_cost 报价 → 用户在对话里确认 → create_tasks → wait_tasks → download_results → 按 file 改名放好。status: plan / approved / done / dropped。",
+ "_how": "每期的增强档资产清单。先填 items → 按 references/04-generate.md 写提示词 → 列表报价（视频秒数 × 单价、图片张数）→ 用户在对话里确认 → 图：generate_image（返回的 PNG 按 file 转成 JPG 放好）；视频：xai_generate_video（image = 首帧图，output_path = assets/<file>）；音效：python3 tools/gen_sfx.py <期目录>（本机 Songhearth，自动回写）。status: plan / approved / done / dropped。",
  "style_prefix": "统一画风前缀（每张图提示词开头都带上，保证整期一个味道）",
  "items": [
-  {"id": "a01", "kind": "image", "use": "B01 冷开场全屏底图", "model": "mj-v8.2", "ratio": "16:9", "prompt": "", "file": "img/a01.jpg", "status": "plan"},
-  {"id": "v01", "kind": "video", "use": "B09 主视觉动态镜头（从 a05 首帧起）", "model": "seedance-2.5-byteplus", "ratio": "16:9", "duration": 8, "resolution": "720p", "first_frame": "task:a05", "prompt": "", "file": "clips/v01.mp4", "status": "plan"},
-  {"id": "s01", "kind": "audio", "use": "B07 揭晓的钟声", "model": "eleven-sfx-v2", "duration": 3, "prompt": "", "file": "audio/sfx_bell.wav", "status": "plan"}
+  {"id": "a01", "kind": "image", "use": "B01 冷开场全屏底图", "aspect_ratio": "16:9", "prompt": "", "file": "img/a01.jpg", "status": "plan"},
+  {"id": "v01", "kind": "video", "use": "B09 主视觉动态镜头（从 a05 首帧起）", "model": "grok-imagine-video", "duration": 8, "resolution": "720p", "first_frame": "img/a05.jpg", "prompt": "", "file": "clips/v01.mp4", "status": "plan"},
+  {"id": "s01", "kind": "sfx", "use": "B07 揭晓的钟声", "duration": 3, "prompt": "", "file": "audio/sfx_bell.wav", "status": "plan"}
  ]
 }

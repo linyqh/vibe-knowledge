@@ -1,5 +1,18 @@
 # 更新记录
 
+## 2026-11-17（晚）· 新工作区打钩子顺序修复
+
+- `new_film.py` 先打 earshot 补丁、再打强制 BGM 钩子：BGM 钩子锚在 earshot 改过的配乐循环上（`import hashlib, os`、`dk`）。原顺序在全新工作区直接报「cine 引擎改过了」并中断，老系列因为早就打过 earshot 才没暴露。
+
+## 2026-11-17（下午）· 增强层去掉 Renoise
+
+- **移除 Renoise**：不再需要 Renoise 账号、MCP 接入和积分；`references/04-renoise.md` 换成 `references/04-generate.md`。「0 积分」统一改称「0 费用」。
+- **配图**：omp 内置 `generate_image`（模型由 omp 的图像模型设置决定，最宽 16:9，返回临时 PNG，转存成 `assets/img/*.jpg`）。
+- **动态镜头**：omp 内置 `xai_generate_video`（xAI Grok Imagine，首帧 = 配图，`output_path` 直接写进 `assets/clips/`；按输出秒数和分辨率计费，默认 `grok-imagine-video` 720p 实测 $0.07/秒，8 秒一条 $0.562）。报价改成「视频秒数 × 该分辨率单价」。
+- **音效**：本机 Songhearth，新增 `tools/gen_sfx.py`（读 assets.json 里 kind 为 sfx 的条目，自动挑已装、引擎支持、可商用的音效模型：moss-soundeffect-v2 → stable-audio-3-small-sfx，0 费用）。Songhearth 客户端抽成 `tools/songhearth_api.py`，`swap_bgm.py` 共用。
+- **长卷**：生图最宽 16:9，4:1 全卷改为 3 段 16:9 续画，新增 `tools/stitch_scroll.py` 从右往左羽化拼接。
+- **assets.json 模板**：去掉 Renoise 模型名和 `task:` 首帧引用；音效条目 kind 改为 `sfx`，视频的 `first_frame` 写图片路径。
+
 ## 2026-11-17 · 配音换成 BreezeCast 设计音色
 
 - **配音引擎**：从云端 TTS 换成本机 BreezeCast（BreezeTTS 2）。新增 `tts_breeze.py`（同样的 audio/、narration.wav、timings.json、qa.json 输出，同样的逐拍缓存；逐字对齐改用本机 Murmur 的逐字时间戳）；narration.json 的 voice 块改成 `{"engine": "breeze", "voice": "AI博主沉稳男声", "style": …}`，`style` 作为语气说明（Voice Direction）发给 BreezeCast，需和旁白同语言。

@@ -87,7 +87,7 @@ def calibrate(bgmt, narr, speech, B, state):
     return bgmt
 
 
-# ── 给 finish.py 打钩子（幂等）──
+# ── 给 finish.py 打钩子（幂等；锚点是 patch_earshot 打过之后的 finish.py，所以必须先打 earshot）──
 HOOKS = [
     ("    import hashlib, os\n",
      "    import hashlib, os\n"
@@ -110,7 +110,7 @@ def patch(series):
         print(f"✓ 已有强制 BGM 钩子：{p}"); return
     for a, b in HOOKS:
         if s.count(a) != 1:
-            sys.exit(f"{p} 里找不到（或不止一处）：{a.strip()[:60]}……cine 引擎改过了，钩子要重写")
+            sys.exit(f"{p} 里找不到（或不止一处）：{a.strip()[:60]}……cine 引擎改过了，钩子要重写（earshot 补丁要先打）")
         s = s.replace(a, b)
     p.write_text(s, encoding="utf-8")
     print(f"✓ 补丁：{p}（强制 vibe-bgm + 按人声校准音量）")

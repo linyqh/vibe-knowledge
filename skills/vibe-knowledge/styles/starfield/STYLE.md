@@ -23,4 +23,4 @@
 ## 搭配
 - 适合母版：A 猜谜概念片（最佳）、F 六面轮转片
 - 不适合：需要大量人物和场景的历史故事
-- 增强档 Renoise 前缀：`Cinematic dark night scene, deep navy and black, a single warm golden light source, fine film grain, minimal, vast negative space, no text`
+- 增强档生图前缀：`Cinematic dark night scene, deep navy and black, a single warm golden light source, fine film grain, minimal, vast negative space, no text`

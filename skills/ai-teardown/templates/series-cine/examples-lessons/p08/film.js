@@ -21,7 +21,7 @@ const SRC = {
   br: "brewreel-promo/BrewReel宣传片-2K.mp4", yz: "yuzong-promo/out/yuzong-2k-hq.mp4",
 };
 const ASK = "用 promo-video 给圈问做一支 30 秒宣传片，官网 http://127.0.0.1:8930。";
-const CLIENTS = ["WorkBuddy", "HiAPI", "YouWare", "Renoise", "ListenHub", "BeeGer", "WaytoAGI", "DockLock", "造物矩阵", "小互", "精酿 BrewReel", "CelHive",
+const CLIENTS = ["WorkBuddy", "HiAPI", "YouWare", "ListenHub", "BeeGer", "WaytoAGI", "DockLock", "造物矩阵", "小互", "精酿 BrewReel", "CelHive",
   "VibeCafé × Vibe42", "鱼总聊AI", "知行猿", "大猫剪辑", "奈雪", "黄但记1927", "TOKEI", "STILLWATER"];
 const LESSONS = ["一支宣传片的骨架", "从官网拿素材", "选型卡：四层只选一次", "分镜和节拍", "动效层：特效长在产品上", "镜头与设备", "声音：配乐、音效、旁白", "质检、交付与改版"];
 

@@ -1,12 +1,12 @@
 # 14 · 制作踩坑清单（按环节）
 
-每条都是真实踩过的坑：现象 → 原因 → 做法。风格相关的坑（MJ 把「青花」画成碗、年代词带偏服饰、ESRGAN 分块错位、画布等解码、Vision 投影）见 12-style-families.md。
+每条都是真实踩过的坑：现象 → 原因 → 做法。风格相关的坑（生图模型把「青花」画成碗、年代词带偏服饰、ESRGAN 分块错位、画布等解码、Vision 投影）见 12-style-families.md。
 
-## 生成（Renoise）
+## 生成
 
 - **AI 画的器物结构不对**（04b 冰鉴图多了玻璃窗）：文物、仪器、机械这类「结构就是知识点」的东西，AI 图容易画错。做法：这类镜头改用 know.js 的 `cutaway` 代码画线稿剖面，画面标「代码示意」，脚注写文物出处。AI 图只用来交代场景和氛围。
-- **Wan 3.0 报 `InvalidParameter: Failed to download <url>`**：首帧图的链接临时拉不到。做法：换一个新的 idempotency key 原样重提一次，一般就过了；失败那次是否退回积分，用 get_account 前后对比确认。
-- **Wan 出片自带上下黑边**（1282×718 里上下各约 40px）：`clip2frames.py` 会自动裁掉，info.json 里有 crop 记录；`vclip` 按 cover 铺满，不用另外处理。
+- **xai_generate_video 每次调用都是付费任务**：已经返回任务号的不要重提；出来的片子不对，就换提示词再报价、你确认后再生成。
+- **视频出片自带上下黑边时**：`clip2frames.py` 会自动裁掉，info.json 里有 crop 记录；`vclip` 按 cover 铺满，不用另外处理。
 
 ## 配音（BreezeCast）
 

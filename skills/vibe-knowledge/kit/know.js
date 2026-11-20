@@ -30,7 +30,7 @@ const decodeLater = (src) => { const im = new Image(); im.src = src; const p = i
 
 // 资源路径：在 film.js 里写 const A = (f) => new URL(`./assets/${f}`, import.meta.url).href;  plate({ src: A("a01.jpg") })
 
-// ── 配图（Renoise 生成的图）：推拉摇移（Ken Burns）+ 淡入淡出 + 暗角 + 可选「AI 示意图」角标 ──
+// ── 配图（generate_image 生成的图）：推拉摇移（Ken Burns）+ 淡入淡出 + 暗角 + 可选「AI 示意图」角标 ──
 // p = plate(s, { src: "assets/a01.jpg", x:0, y:0, w:1920, h:1080, ai: true, radius: 0, shade: 0.35 })
 // p.update(t, t0, t1, { from: [1.06, 0, 0], to: [1.14, -40, 10], fi: 0.6, fo: 0.6 })   // [缩放, 位移x, 位移y]
 export function plate(parent, { src, x = 0, y = 0, w = 1920, h = 1080, ai = true, radius = 0, shade = 0.35, pos = "50% 50%", tag = "AI 示意图" }) {
@@ -73,7 +73,7 @@ export function layers(parent, list, { x = 0, y = 0, w = 1920, h = 1080 } = {}) 
     } };
 }
 
-// ── 动态镜头（Renoise 生成的视频）：tools/clip2frames.py 拆成帧序列，这里按时间逐帧画到画布上 ──
+// ── 动态镜头（xai_generate_video 生成的视频）：tools/clip2frames.py 拆成帧序列，这里按时间逐帧画到画布上 ──
 // 字幕、脚注、关键词都在它上面（finish.py 的 clips 叠加在最上层，会盖住字幕，全屏 B-roll 一律用 vclip）。
 // v = vclip(s, { dir: A("clips/v01"), n: 241, fps: 30 }); v.update(t, t0, t1, { rate: 1, from: [1, 0, 0], to: [1.06, 0, 0], loop: false })
 export function vclip(parent, { dir, n, fps = 30, ext = "jpg", x = 0, y = 0, w = 1920, h = 1080, ai = true, tag = "AI 生成画面", shade = 0.3, keep = 45 }) {

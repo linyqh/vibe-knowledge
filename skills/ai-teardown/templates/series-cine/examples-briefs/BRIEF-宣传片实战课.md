@@ -8,7 +8,7 @@
 - 片子本身要好看：开场 5–8 秒是真片段快剪 + 代码做的标题，卡在配乐的拍点上；只在 2–3 个关键点用 `hits`（而且**有片段在画面里时不要用 hits**，片段是后期叠上去的，不会跟着抖）。
 
 ## 用户 10-05 的新要求（必须照做）
-- **所有作品只用最后的成品最终版本**（下表），不用旧版；优先用 WorkBuddy 上手课、WaytoAGI、YouWare、Renoise、造物矩阵。
+- **所有作品只用最后的成品最终版本**（下表），不用旧版；优先用 WorkBuddy 上手课、WaytoAGI、YouWare、造物矩阵。
 - **不要用 Berryxia 那支片**（任何地方都不出现）。
 - 按行业分类讲：AI 产品、社区与个人品牌、茶饮餐饮、百货、零售、制造业、电商、文旅生活。新的行业片（喜茶、无印良品、比亚迪、零售、电商）正在做，做好后放在 `~/Desktop/brand-promos/<品牌>/out/film.mp4`，主会话会告诉你能不能用。
 - 需要配图（插画、贴纸、示意图）直接用 Codex 生图：`codex exec --skip-git-repo-check "生成一张图：…。复制到当前目录命名为 X.png" < /dev/null > log 2>&1`（必须 `< /dev/null`），放进 `lessons/<课号>/assets/`。不要用 emoji。
@@ -22,7 +22,6 @@
 | AI 产品 | YouWare v3 | youware-promo/out/youware-v3-hq.mp4 |
 | AI 产品 | YouWare PPT 能力片 | youware-promo/out/ppt-2k.mp4 |
 | AI 产品 | YouWare 投流片（日 / 中 / 英） | youware-jp/out/jp-master.mp4 · zh-master.mp4 · en-master.mp4 |
-| AI 产品 | Renoise | renoise-promo/out/renoise-2k-v2.mp4 |
 | AI 产品 | HiAPI | hiapi-promo/out/hiapi-hq.mp4 |
 | AI 产品 | ListenHub | listenhub-promo/out/listenhub-hq.mp4 |
 | AI 产品 | BeeGer（最终 3D 版） | beeger-promo/out/beeger-3d-hq.mp4 |
@@ -121,9 +120,9 @@ film.js 里：`music = [{ src: 绝对路径, from: 0, at: 0, dur: 整节长 + 0.
 ## 各课要点
 | 课号 | 王炸开场建议 | 必讲三件事 | 主案例 |
 |---|---|---|---|
-| p02 从官网拿素材 | 官网截图被拆成素材板：Logo、色卡、字体、产品图飞出来落成片中画面 | 文案与卖点（原话优先、数字要确认）；配色字体 Logo（算出来的）；产品图、官网视频、缺什么就问 | Renoise、BeeGer（透明 Logo 放白底）、造物矩阵（矢量 Logo 做书写盖印）、大猫剪辑（官网没截图→功能示意片）、HiAPI（官方视频 + curl 钩子） |
+| p02 从官网拿素材 | 官网截图被拆成素材板：Logo、色卡、字体、产品图飞出来落成片中画面 | 文案与卖点（原话优先、数字要确认）；配色字体 Logo（算出来的）；产品图、官网视频、缺什么就问 | BeeGer（透明 Logo 放白底）、造物矩阵（矢量 Logo 做书写盖印）、大猫剪辑（官网没截图→功能示意片）、HiAPI（官方视频 + curl 钩子） |
 | p03 选型卡 | 四个转轮转动、锁定成一张选型卡 | 四层（模式/基调/骨架/增强≤2）；按信号推荐；口碑记录 | WorkBuddy 四个版本（同一产品四张选型卡）、BeeGer v1 vs 快节奏版、小互 |
 | p04 分镜和节拍 | 波形 + 切点：真片段按鼓点硬切 | 分镜表七列；阅读速度（中文约 7 字/秒 + 0.5 秒）；选曲对拍（BPM 网格、能量到达点、`--hit-at`） | 精酿（实测 95 BPM）、小互（atempo 对齐网格）、本课自己的配乐 |
-| p05 动效层 | 粒子在产品截图上聚成口号再炸开 | 素材优先；三个档位与手艺地图；转场与首尾呼应、「不够炫」怎么加码 | WorkBuddy v4、YouWare v3、Renoise（视频嵌字）、WaytoAGI（Logo 环 2D→3D→2D）、造物矩阵 v1→炫酷版 |
+| p05 动效层 | 粒子在产品截图上聚成口号再炸开 | 素材优先；三个档位与手艺地图；转场与首尾呼应、「不够炫」怎么加码 | WorkBuddy v4、YouWare v3、WaytoAGI（Logo 环 2D→3D→2D）、造物矩阵 v1→炫酷版 |
 | p06 镜头与设备 | 镜头穿过一面 3D 片墙 | 导演运镜表；运镜规则（一种主运动、CTA 静稳、HitCam 只给 3–5 个关键帧，不整段抖）；3D 设备、一镜到底、纯代码 3D | DockLock（三屏 CSS-3D）、WorkBuddy 一镜到底、TOKEI、蜜蜂对比片、编排课样片 |
 | p07 声音 | 一支片的音轨拆成配乐/音效/旁白三层逐层亮起 | 曲库与授权（Mixkit 能做/不能做）；音效落在接触帧、两处最响；旁白避让与母带 | ListenHub（官方音色驱动声波）、WorkBuddy 一镜到底（克隆旁白）、小互（换配乐）、编排课样片的真实按键录音 |

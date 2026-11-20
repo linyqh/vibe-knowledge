@@ -1,16 +1,19 @@
-# 10 · earshot 代码音效（两档通用，0 积分）
+# 10 · earshot 代码音效（两档通用，0 费用）
 
 来源：github.com/Leonxlnx/earshot（MIT，2963★）。252 个音效全部以「配方代码」存放，按编号几秒渲染出来，不联网、不需要模型；同一个音效换 seed 就是新的 take。另有听觉质检（timeline / sheet / critique），那部分要下载约 1.1 GB 模型，按需再装。
 
-## 安装（本机已装：~/tools/earshot，2026-10-27）
+## 安装（film.js 里用了 earshot 就必须装；没装时 finish.py 报找不到 `~/tools/earshot/.venv/bin/python`，混音失败）
 
 ```bash
 git clone --depth 1 https://github.com/Leonxlnx/earshot ~/tools/earshot && cd ~/tools/earshot
-/usr/local/bin/python3.12 -m venv --system-site-packages .venv          # 复用 3.12 已有的 numpy/scipy/librosa/soundfile
-CERT=$(/usr/local/bin/python3.12 -c "import certifi;print(certifi.where())")   # 这台机器 python.org 版 pip 有证书问题
-.venv/bin/python -m pip install --cert "$CERT" pyloudnorm && .venv/bin/python -m pip install --cert "$CERT" --no-deps -e .
+# 有 uv（推荐，2026-11-17 实测）：只装音效库用到的依赖，不装 torch / transformers
+uv venv -p 3.12 .venv && uv pip install -p .venv/bin/python numpy scipy soundfile soxr librosa pyloudnorm && uv pip install -p .venv/bin/python --no-deps -e .
+# 没有 uv：用 python.org 的 3.12 复用已有的 numpy/scipy/librosa/soundfile
+#   /usr/local/bin/python3.12 -m venv --system-site-packages .venv
+#   .venv/bin/python -m pip install pyloudnorm && .venv/bin/python -m pip install --no-deps -e .
 PYTHONPATH= .venv/bin/python -m earshot sfx list          # 252 sounds in the bank
 ```
+装好后只需重跑 `cine/tools/finish.py <课号>` 和 `deliver.sh`，不用重新录制。
 音效库只依赖 numpy / scipy；没装 torch 和模型，所以 describe / match / timeline / critique 暂不可用。
 
 ## 在片子里用

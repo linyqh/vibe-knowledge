@@ -1,4 +1,4 @@
-// 风格样片集 · 第九批：5 套 0 积分代码风格（候选清单收尾），同一段开场（复用第 01 期 B01 旁白）。
+// 风格样片集 · 第九批：5 套 0 费用代码风格（候选清单收尾），同一段开场（复用第 01 期 B01 旁白）。
 // 黏土卡哇伊、装饰艺术金线、国家公园海报、档案灯台、电视新闻包装（台名虚构「VIBE 新闻」，不模仿真实电视台）。
 import { clamp, lerp, eOutCubic, eInOutCubic, eOutQuint, eInCubic, eOutBack, hit, el, css, rng } from "../../cine/engine/util.js";
 import { bg } from "../../cine/engine/know.js";
@@ -226,7 +226,7 @@ export async function build(ctx) {
     el(s, "abs", "inset:0;background:#0B0A0C;");
     el(s, "abs cn", "left:0;width:1920px;top:300px;text-align:center;font-size:84px;font-weight:900;color:#f6f2ea;", "风格库 +5：候选清单收尾");
     STY.forEach((st, i) => el(s, "abs cn", `left:${130 + i * 340}px;top:500px;width:320px;padding:22px 0;text-align:center;border-radius:16px;font-size:34px;font-weight:800;color:${st.th.ink};background:#${st.th.bg.toString(16).padStart(6, "0")};border:3px solid ${st.th.accent};`, st.name));
-    el(s, "abs cn", "left:0;width:1920px;top:700px;text-align:center;font-size:30px;color:#a8a29a;", "全部代码画面 · 0 积分 · 风格库共 43 套 / 8 个家族");
+    el(s, "abs cn", "left:0;width:1920px;top:700px;text-align:center;font-size:30px;color:#a8a29a;", "全部代码画面 · 0 费用 · 风格库共 43 套 / 8 个家族");
     return { s };
   }, () => bg(ctx, { bg: 0x0b0a0c }, { bloom: 0.3 }));
   return shots;

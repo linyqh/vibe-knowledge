@@ -70,11 +70,11 @@
 
 0. **推荐关键词不要写单字**：「聪明」会命中古风的「明」（明朝）。catalog 里一律写双字以上（明朝、唐代、诗词…），recommend.py 也已忽略单字词。
 
-1. **MJ 把「某某瓷器上的画」画成器物实物照**：提示词写 porcelain painting，出来的是碗和盘子的产品照。要写 `flat full-frame painting in ... style` 并加 `no bowl, no plate, no vase, no ceramic object`。
+1. **生图模型把「某某瓷器上的画」画成器物实物照**：提示词写 porcelain painting，出来的是碗和盘子的产品照。要写 `flat full-frame painting in ... style` 并加 `no bowl, no plate, no vase, no ceramic object`。
 2. **年代风格词会带偏人物时代**：写「1930s woodcut」，人物就戴近代帽子。人物时代要单独写清楚（`ancient Warring States China, long hemp robes, hair tied in topknots`），再加 `no modern clothing, no caps`。
 3. **Real-ESRGAN 用 x4plus 模型配 `-s 2` 会分块错位**（画面像被切成方块后拼乱）。只需放大 1.3 倍时直接用 Lanczos 加轻微锐化；要放大就用 `-s 4` 再缩小。
 4. **画布画图要等图片解码**：用 canvas 画生图时，第一帧可能在解码完成前就画了（出现黑洞）。styles4 的 `redraw()`：没解码完就往 `__vk.pend` 登记一次「解码后用同一个 t 重画」。
 5. **Vision 抠图的投影不在蒙版里**：主体抠走后地面投影还留在底图上。补洞时把蒙版往投影方向（右下）拖拽求并集再膨胀；纯色纸面用中位色加噪声补，比 inpaint 干净。
 6. **Vision 的 `generateMaskedImage` 输出会错位**：改用 `generateScaledMaskForImage` 只导出蒙版，再用 PIL 合成（工具 `tools/vision_layers.swift`）。
-8. **超宽画幅用 Nano Banana 2**：Midjourney 最宽 16:9，长卷要 4:1 时用 nano-banana-2（2k，12 积分/张，比 MJ 贵）；4128×1024 按 1080 高缩放后约 4354 宽，正好够横移。
+8. **超宽画幅**：generate_image 最宽 16:9，长卷（4:1）分 3 段 16:9 续画（第 2、3 段把上一段作 `input`），`tools/stitch_scroll.py` 从右往左羽化拼接（默认重叠 160 像素，3 段约 5440 宽）；拼缝先看片再用。
 7. **离屏挖洞用 destination-out，不要用 evenodd 裁剪**：多块剥落区域重叠时，evenodd 会把重叠处又补回来。

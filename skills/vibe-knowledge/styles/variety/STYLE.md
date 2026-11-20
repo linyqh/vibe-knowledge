@@ -1,6 +1,6 @@
 # 综艺花字 · VARIETY CAPTIONS
 
-> 家族：明亮流行　|　档位：基础档 · 0 积分　|　风格图：`still.jpg`　|　样片源码：`_samples/styles3_film.js → variety()`
+> 家族：明亮流行　|　档位：基础档 · 0 费用　|　风格图：`still.jpg`　|　样片源码：`_samples/styles3_film.js → variety()`
 
 **一句话**：亮黄旋转放射底上，粗白描边加深色厚投影的花字一个个弹出来，贴纸、对话泡、金币雨。
 
@@ -23,4 +23,4 @@
 ## 搭配
 - 适合母版：生活冷知识 C、六面轮转 F
 - 不适合：严肃历史、灾难、讣闻类选题
-- 增强档 Renoise 前缀：`（基础档不需要；要贴纸用 Codex 生贴纸，见 feedback-codex-stickers）`
+- 增强档生图前缀：`（基础档不需要；要贴纸用 Codex 生贴纸，见 feedback-codex-stickers）`

@@ -1,4 +1,4 @@
-// 风格样片集 · 第六批：8 套 0 积分代码风格，同一段开场（复用第 01 期 B01 旁白）。
+// 风格样片集 · 第六批：8 套 0 费用代码风格，同一段开场（复用第 01 期 B01 旁白）。
 // 补薄家族：电影感（默片字卡、构成主义蒙太奇）、游戏（RPG 对话框、卡牌对战）；再加发布会极简、极光、杂志编辑、蒸汽波。
 import { clamp, lerp, eOutCubic, eInOutCubic, eOutQuint, eInCubic, eOutBack, hit, el, css, rng } from "../../cine/engine/util.js";
 import { bg } from "../../cine/engine/know.js";
@@ -316,7 +316,7 @@ export async function build(ctx) {
     el(s, "abs", "inset:0;background:#0B0A0C;");
     el(s, "abs cn", "left:0;width:1920px;top:300px;text-align:center;font-size:84px;font-weight:900;color:#f6f2ea;", "风格库 +8：第六批");
     STY.forEach((st, i) => el(s, "abs cn", `left:${170 + (i % 4) * 400}px;top:${470 + Math.floor(i / 4) * 140}px;width:370px;padding:22px 0;text-align:center;border-radius:16px;font-size:36px;font-weight:800;color:${st.th.ink};background:#${st.th.bg.toString(16).padStart(6, "0")};border:3px solid ${st.th.accent};`, st.name));
-    el(s, "abs cn", "left:0;width:1920px;top:800px;text-align:center;font-size:30px;color:#a8a29a;", "全部代码画面 · 0 积分 · 风格库共 35 套 / 8 个家族，每个家族至少 3 套");
+    el(s, "abs cn", "left:0;width:1920px;top:800px;text-align:center;font-size:30px;color:#a8a29a;", "全部代码画面 · 0 费用 · 风格库共 35 套 / 8 个家族，每个家族至少 3 套");
     return { s };
   }, () => bg(ctx, { bg: 0x0b0a0c }, { bloom: 0.3 }));
   return shots;

@@ -23,4 +23,4 @@
 ## 搭配
 - 适合母版：E 闯关片（最佳）
 - 不适合：严肃沉重的历史悲剧
-- 增强档 Renoise 前缀：`16-bit pixel art, side view game scene, bold limited palette, crisp pixels, no text, no UI`
+- 增强档生图前缀：`16-bit pixel art, side view game scene, bold limited palette, crisp pixels, no text, no UI`

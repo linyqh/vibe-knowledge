@@ -20,6 +20,6 @@
 - [earshot](https://github.com/Leonxlnx/earshot) 代码音效库（MIT，可选，见 skills/vibe-knowledge/references/10-earshot.md）
 - BreezeCast（本机配音，BreezeTTS 2，无需密钥；需自行安装并下载模型）
 - Murmur（本机逐字对齐与回读，Qwen3-ASR，无需密钥；需自行安装）
-- Songhearth（本机生成换曲 BGM，可选；模型许可证以所选模型为准，非商用模型会被拒绝）
-- [Renoise MCP](https://renoise.ai/mcp?utm_medium=xcom&utm_source=official)（增强档的配图、动态镜头、音效，可选）
+- Songhearth（本机生成换曲 BGM 和增强档音效，可选；模型许可证以所选模型为准，非商用模型会被拒绝）
+- omp 的 `generate_image`、`xai_generate_video`（xAI Grok Imagine）（增强档的配图和动态镜头，可选；需在 omp 里运行，xAI 密钥在 omp 里配置）
 - ffmpeg、Playwright（Chromium headless shell）

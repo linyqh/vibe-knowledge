@@ -23,7 +23,7 @@ export async function build(ctx) {
 
   // 默认 BGM（skill 自带 vibe-bgm，fit_bgm.py --lesson 按片长裁好放在 assets/audio/bgm.wav）；用户要求换曲：用 tools/swap_bgm.py 生成 bgm_user.wav（自备文件或本机 Songhearth），见 SKILL.md「BGM」
   music.push({ src: P("audio/bgm.wav"), from: 0, at: 0, dur: END + TAIL, gain_curve: [[0, -11], [END, -11], [END + TAIL, -8]], fade_in: 0.3, fade_out: 1.8 });
-  // 单个音效（ElevenLabs SFX）：music.push({ src: P("audio/sfx_bell.wav"), from: 0, at: T("B07.reveal"), dur: 3, gain: -8 });
+  // 单个音效（本机 Songhearth，tools/gen_sfx.py 按 assets.json 生成）：music.push({ src: P("audio/sfx_bell.wav"), from: 0, at: T("B07.reveal"), dur: 3, gain: -8 });
   sections.push({ t: 0, t_to: END + 2.5, level: 0 });
 
   // ── B01 冷开场 ──

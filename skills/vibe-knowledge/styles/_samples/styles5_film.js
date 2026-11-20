@@ -1,4 +1,4 @@
-// 风格样片集 · 第五批：8 套 0 积分代码风格，同一段开场（复用第 01 期 B01 旁白）。
+// 风格样片集 · 第五批：8 套 0 费用代码风格，同一段开场（复用第 01 期 B01 旁白）。
 // 霓虹赛博、留白极简、复古桌面、剪报拼字、地铁线路图、象形统计、手账涂鸦、剪影片头。每套同时规定长相和讲法（见函数头注释）。
 import { clamp, lerp, eOutCubic, eInOutCubic, eOutQuint, eInCubic, eOutBack, hit, el, css, rng } from "../../cine/engine/util.js";
 import { bg } from "../../cine/engine/know.js";
@@ -305,7 +305,7 @@ export async function build(ctx) {
     el(s, "abs", "inset:0;background:#0B0A0C;");
     el(s, "abs cn", "left:0;width:1920px;top:300px;text-align:center;font-size:84px;font-weight:900;color:#f6f2ea;", "风格库 +8：第五批");
     STY.forEach((st, i) => el(s, "abs cn", `left:${170 + (i % 4) * 400}px;top:${470 + Math.floor(i / 4) * 140}px;width:370px;padding:22px 0;text-align:center;border-radius:16px;font-size:38px;font-weight:800;color:${st.th.ink};background:#${st.th.bg.toString(16).padStart(6, "0")};border:3px solid ${st.th.accent};`, st.name));
-    el(s, "abs cn", "left:0;width:1920px;top:800px;text-align:center;font-size:30px;color:#a8a29a;", "全部代码画面 · 0 积分 · 风格库共 27 套 / 8 个家族");
+    el(s, "abs cn", "left:0;width:1920px;top:800px;text-align:center;font-size:30px;color:#a8a29a;", "全部代码画面 · 0 费用 · 风格库共 27 套 / 8 个家族");
     return { s };
   }, () => bg(ctx, { bg: 0x0b0a0c }, { bloom: 0.3 }));
   return shots;

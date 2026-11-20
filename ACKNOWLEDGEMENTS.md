@@ -47,7 +47,7 @@ three.js、Rough.js、lottie-web、AntV X6、Geist、Noto Sans SC、霞鹜文楷
 
 ## 五、外部服务
 
-BreezeCast（本机配音，BreezeTTS 2）、Murmur（本机逐字对齐与回读）、Songhearth（本机生成换曲 BGM，可选）、[Renoise](https://renoise.ai/mcp?utm_medium=xcom&utm_source=official)（增强档的配图、动态镜头、音效）、Anthropic Claude Code / Claude Opus（编排与写代码）。这些服务和软件由使用者自行安装或注册（BreezeCast、Murmur、Songhearth 本机运行，不需要密钥），本仓库不包含任何密钥。
+BreezeCast（本机配音，BreezeTTS 2）、Murmur（本机逐字对齐与回读）、Songhearth（本机生成换曲 BGM 和增强档音效，可选）、omp 的 `generate_image` 与 `xai_generate_video`（xAI Grok Imagine）（增强档的配图和动态镜头）、Anthropic Claude Code / Claude Opus（编排与写代码）。这些服务和软件由使用者自行安装或配置（BreezeCast、Murmur、Songhearth 本机运行，不需要密钥；`xai_generate_video` 的 xAI 密钥在 omp 里配置），本仓库不包含任何密钥。
 
 ---
 

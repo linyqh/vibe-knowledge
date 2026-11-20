@@ -23,4 +23,4 @@
 ## 搭配
 - 适合母版：C 痛点原理片（最佳，竖屏）、D 一条主线片
 - 不适合：需要真实史料图像的考证
-- 增强档 Renoise 前缀：`Minimal line-art illustration, glowing amber lines on charcoal black, warm rim light, editorial, lots of empty space, no text`
+- 增强档生图前缀：`Minimal line-art illustration, glowing amber lines on charcoal black, warm rim light, editorial, lots of empty space, no text`

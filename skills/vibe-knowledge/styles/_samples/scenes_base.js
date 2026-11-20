@@ -1,4 +1,4 @@
-// 基础档场景：Opus 手写的分层矢量插画（扁平古风剪影），给 know.js 的 layers() 用。0 积分。
+// 基础档场景：Opus 手写的分层矢量插画（扁平古风剪影），给 know.js 的 layers() 用。0 费用。
 // 每个场景返回 [{ svg, depth }]：depth 小 = 远景（动得少），大 = 近景（动得多）。
 const V = (inner, defs = "") => `<svg viewBox="0 0 1920 1080" xmlns="http://www.w3.org/2000/svg"><defs>${defs}</defs>${inner}</svg>`;
 let _id = 0;

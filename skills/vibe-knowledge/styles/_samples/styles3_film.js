@@ -1,4 +1,4 @@
-// 风格样片集 · 第三批「补空白家族」：8 套 0 积分代码风格，同一段开场（复用第 01 期 B01 旁白）。
+// 风格样片集 · 第三批「补空白家族」：8 套 0 费用代码风格，同一段开场（复用第 01 期 B01 旁白）。
 // 明亮流行：综艺花字、孟菲斯波普；图解与设计学派：粉笔黑板、蓝图专利图、等轴测剖面、瑞士网格动态字；印刷：孔版印刷；暗场：深色数学。
 // 每套不只换皮，也换讲法（见各函数头注释）。时间轴由 tools/style_reel.py 生成：ten≈h+2.36 nobody≈h+3.12 fifty≈h+3.82。
 import { clamp, lerp, eOutCubic, eInOutCubic, eOutQuint, eInCubic, eOutBack, hit, el, css, rng } from "../../cine/engine/util.js";
@@ -362,7 +362,7 @@ export async function build(ctx) {
     el(s, "abs", "inset:0;background:#0B0A0C;");
     el(s, "abs cn", "left:0;width:1920px;top:300px;text-align:center;font-size:84px;font-weight:900;color:#f6f2ea;", "风格库 +8：补齐空白家族");
     STY.forEach((st, i) => el(s, "abs cn", `left:${170 + (i % 4) * 400}px;top:${470 + Math.floor(i / 4) * 140}px;width:370px;padding:22px 0;text-align:center;border-radius:16px;font-size:38px;font-weight:800;color:${st.th.ink};background:#${st.th.bg.toString(16).padStart(6, "0")};border:3px solid ${st.th.accent};`, st.name));
-    el(s, "abs cn", "left:0;width:1920px;top:800px;text-align:center;font-size:30px;color:#a8a29a;", "全部代码画面 · 0 积分 · 每套都能叠「一镜到底 / 尺度穿越 / 数据叙事」等手法");
+    el(s, "abs cn", "left:0;width:1920px;top:800px;text-align:center;font-size:30px;color:#a8a29a;", "全部代码画面 · 0 费用 · 每套都能叠「一镜到底 / 尺度穿越 / 数据叙事」等手法");
     return { s };
   }, () => bg(ctx, { bg: 0x0b0a0c }, { bloom: 0.3 }));
   return shots;

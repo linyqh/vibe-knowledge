@@ -71,7 +71,7 @@
 | `n` | 课号（封面「第 N 节」）；导学等非数字课用 `eyebrow`/`props` 覆盖 |
 | `skin` | `notion`（纯白、Geist+Noto 无衬线、Notion 文字色/底色、callout、面包屑、白闪转场）/ `paper`（手账纸、霞鹜文楷、胶带便利贴） |
 | `skin: "cream"` | Notion 版式 + 奶油底 #FAF6EE + 香槟金强调（医美 / 高端品牌培训课；`SKINS.cream`，模板逻辑同 notion） |
-| `presenter` 其他写法 | `"<前缀>"`：系列 assets/img 里有 `<前缀>-0/-blink/-talk/-talk-blink` 四帧（如 Renoise 生成的女讲师 `lady`），按字张嘴、眨眼、冒 tips；`"emoji:<名>"`：一个 Noto emoji 当讲解员 |
+| `presenter` 其他写法 | `"<前缀>"`：系列 assets/img 里有 `<前缀>-0/-blink/-talk/-talk-blink` 四帧（如生图得到的女讲师 `lady`），按字张嘴、眨眼、冒 tips；`"emoji:<名>"`：一个 Noto emoji 当讲解员 |
 | `presenterSmooth` | 讲解员是插画（非像素）时写 true：平滑缩放、300px 大一号 |
 | `presenter` | `hp`：像素小人 10 动作（talk wave point idea think stop check cheer thumbsup type，各 8 帧，talk 按字张嘴、帧 4 眨眼）；`host`：旧版单头像 |
 | `sticker` | **新课默认 true**：贴纸风（见上）；老课不写 = 原来的卡片样式 |

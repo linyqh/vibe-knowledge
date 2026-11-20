@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Renoise 视频 → 帧序列（给 know.js 的 vclip 用）。
+"""动态镜头视频（omp xai_generate_video 生成）→ 帧序列（给 know.js 的 vclip 用）。
 用法：python3 clip2frames.py <in.mp4> <lessons/NN/assets/clips/v01> [--fps 30] [--w 1920] [--from 0] [--dur 0] [--nocrop]
-- 自动裁黑边：Wan 等模型的输出常带上下信箱黑边（2026-10-27 实测 Wan 3.0 720p 顶部 66 像素纯黑）。
+- 自动裁黑边：生成视频有时带上下信箱黑边（2026-10-27 实测某 720p 模型顶部 66 像素纯黑），裁掉再用。
   抽 3 帧量每一行的平均亮度，连续 ≤2.5 的行算黑边，取 3 帧里最小的，再多裁 2 像素。--nocrop 关掉。
 - 输出 0001.jpg… 和 info.json {n, fps, w, h, crop, src}；打印 n。原视频音轨另存 audio.wav（想用环境声时放进 film.js 的 music 条目）。"""
 import json, subprocess, sys

@@ -5,11 +5,11 @@
 **一个知识点 → 一条有旁白、每句有出处的精品知识短片。**<br>
 Claude Code skill：选题 → 查证 → 写稿 → 配音 → 代码成片 → 1080p60 → 质检 → 发布包，全程在对话里完成。
 
-[![MIT](https://img.shields.io/badge/license-MIT-2f7d4f)](LICENSE) [![Claude Code skill](https://img.shields.io/badge/Claude%20Code-skill-d97757)](skills/vibe-knowledge/SKILL.md) [![Renoise MCP](https://img.shields.io/badge/video-Renoise%20MCP-ff7a1a)](https://renoise.ai/mcp?utm_medium=xcom&utm_source=official)
+[![MIT](https://img.shields.io/badge/license-MIT-2f7d4f)](LICENSE) [![Claude Code skill](https://img.shields.io/badge/Claude%20Code-skill-d97757)](skills/vibe-knowledge/SKILL.md)
 
 <sub>本仓库基于 <a href="https://github.com/andyhuo520/vibe-knowledge">andyhuo520/vibe-knowledge</a>（原作者 <a href="https://x.com/berryxia">@Berryxia</a>）修改，由 <a href="https://github.com/linyqh">@linyqh</a> 维护：配音改用本机 BreezeCast，逐字对齐与回读改用本机 Murmur，换曲只用自备文件或本机 Songhearth，不再依赖云端语音服务和密钥。改动记录见 <a href="skills/vibe-knowledge/CHANGELOG.md">CHANGELOG</a>。</sub>
 
-[English](README.en.md) · [看样片](#看样片) · [风格库](#风格库44-套--8-个家族) · [听一听](#听一听默认-bgm) · [Renoise](#renoise增强档的生成平台) · [安装](#安装)
+[English](README.en.md) · [看样片](#看样片) · [风格库](#风格库44-套--8-个家族) · [听一听](#听一听默认-bgm) · [增强档](#增强档生图动态镜头音效) · [安装](#安装)
 
 <img src="docs/style-flash.gif" width="720" alt="风格快闪片">
 
@@ -21,13 +21,13 @@ Claude Code skill：选题 → 查证 → 写稿 → 配音 → 代码成片 →
 
 ## 看样片
 
-点封面播放（视频放在上游仓库的 [Release v1.0.0](https://github.com/andyhuo520/vibe-knowledge/releases/tag/v1.0.0)，由原作者制作，配音不是本仓库的默认音色）。所有画面都由 Claude Opus 编排、代码逐帧渲染；标「增强」的镜头用 [Renoise](https://renoise.ai/mcp?utm_medium=xcom&utm_source=official) 生成配图和动态镜头，片中都标注「AI 示意」。
+点封面播放（视频放在上游仓库的 [Release v1.0.0](https://github.com/andyhuo520/vibe-knowledge/releases/tag/v1.0.0)，由原作者制作，配音不是本仓库的默认音色）。所有画面都由 Claude Opus 编排、代码逐帧渲染；标「增强」的镜头是 AI 生成的配图和动态镜头，片中都标注「AI 示意」。
 
 <table>
 <tr><td width="50%" valign="top"><a href="https://github.com/andyhuo520/vibe-knowledge/releases/download/v1.0.0/ep04b-no-fridge-gufeng.mp4"><img src="docs/posters/ep04b-no-fridge-gufeng.jpg" width="100%"></a><br><b>如果你活在古代没有冰箱（古风版）</b><br><sub>2:05 · 两难选择片 · 古风 · 增强标准档（Wan 3.0 动态镜头）</sub></td><td width="50%" valign="top"><a href="https://github.com/andyhuo520/vibe-knowledge/releases/download/v1.0.0/ep01-shangyang.mp4"><img src="docs/posters/ep01-shangyang.jpg" width="100%"></a><br><b>商鞅立木：搬一根木头赏五十金，你搬不搬？</b><br><sub>2:32 · 两难选择片 · 古风 · 增强档</sub></td></tr>
-<tr><td width="50%" valign="top"><a href="https://github.com/andyhuo520/vibe-knowledge/releases/download/v1.0.0/ep01-shangyang-base.mp4"><img src="docs/posters/ep01-shangyang-base.jpg" width="100%"></a><br><b>商鞅立木（基础档，0 积分）</b><br><sub>2:32 · 同一份 film.js，代码插画版</sub></td><td width="50%" valign="top"><a href="https://github.com/andyhuo520/vibe-knowledge/releases/download/v1.0.0/ep01-tiers-compare.mp4"><img src="docs/posters/ep01-tiers-compare.jpg" width="100%"></a><br><b>商鞅立木 · 两档上下对比</b><br><sub>2:32 · 基础档 vs 增强档，旁白和脚本完全一样</sub></td></tr>
+<tr><td width="50%" valign="top"><a href="https://github.com/andyhuo520/vibe-knowledge/releases/download/v1.0.0/ep01-shangyang-base.mp4"><img src="docs/posters/ep01-shangyang-base.jpg" width="100%"></a><br><b>商鞅立木（基础档，0 费用）</b><br><sub>2:32 · 同一份 film.js，代码插画版</sub></td><td width="50%" valign="top"><a href="https://github.com/andyhuo520/vibe-knowledge/releases/download/v1.0.0/ep01-tiers-compare.mp4"><img src="docs/posters/ep01-tiers-compare.jpg" width="100%"></a><br><b>商鞅立木 · 两档上下对比</b><br><sub>2:32 · 基础档 vs 增强档，旁白和脚本完全一样</sub></td></tr>
 <tr><td width="50%" valign="top"><a href="https://github.com/andyhuo520/vibe-knowledge/releases/download/v1.0.0/ep02-paper-to-moon.mp4"><img src="docs/posters/ep02-paper-to-moon.jpg" width="100%"></a><br><b>一张纸折多少次能到月球</b><br><sub>1:10 · 猜谜概念片 · 深色数学 + 尺度穿越 · 增强标准档</sub></td><td width="50%" valign="top"><a href="https://github.com/andyhuo520/vibe-knowledge/releases/download/v1.0.0/ep03-money-laundering.mp4"><img src="docs/posters/ep03-money-laundering.jpg" width="100%"></a><br><b>什么是洗钱</b><br><sub>1:31 · 痛点原理片 · 半调拼贴 · 增强轻档</sub></td></tr>
-<tr><td width="50%" valign="top"><a href="https://github.com/andyhuo520/vibe-knowledge/releases/download/v1.0.0/ep04-no-fridge.mp4"><img src="docs/posters/ep04-no-fridge.jpg" width="100%"></a><br><b>如果你活在古代没有冰箱</b><br><sub>3:12 · 猜谜概念片 · 星空光点 · 基础档 0 积分（同一选题的另一种讲法）</sub></td><td width="50%" valign="top"><a href="https://github.com/andyhuo520/vibe-knowledge/releases/download/v1.0.0/ep05-rocket.mp4"><img src="docs/posters/ep05-rocket.jpg" width="100%"></a><br><b>火箭怎么飞上天</b><br><sub>1:46 · 猜谜概念片 · 蓝图专利图 · 增强标准档</sub></td></tr>
+<tr><td width="50%" valign="top"><a href="https://github.com/andyhuo520/vibe-knowledge/releases/download/v1.0.0/ep04-no-fridge.mp4"><img src="docs/posters/ep04-no-fridge.jpg" width="100%"></a><br><b>如果你活在古代没有冰箱</b><br><sub>3:12 · 猜谜概念片 · 星空光点 · 基础档 0 费用（同一选题的另一种讲法）</sub></td><td width="50%" valign="top"><a href="https://github.com/andyhuo520/vibe-knowledge/releases/download/v1.0.0/ep05-rocket.mp4"><img src="docs/posters/ep05-rocket.jpg" width="100%"></a><br><b>火箭怎么飞上天</b><br><sub>1:46 · 猜谜概念片 · 蓝图专利图 · 增强标准档</sub></td></tr>
 </table>
 
 **风格样片集**（每套风格演同一段「商鞅立木」开场，方便横向比较）：
@@ -58,7 +58,7 @@ Claude Code skill：选题 → 查证 → 写稿 → 配音 → 代码成片 →
 | 印刷与纸 | 5 | [孔版印刷](skills/vibe-knowledge/styles/riso/STYLE.md)、[半调拼贴](skills/vibe-knowledge/styles/collage/STYLE.md)（增强）、[剪报拼字](skills/vibe-knowledge/styles/ransom/STYLE.md)、[杂志编辑](skills/vibe-knowledge/styles/editorial/STYLE.md)、[国家公园海报](skills/vibe-knowledge/styles/poster/STYLE.md) |
 | 电影感 | 3 | [剪影片头](skills/vibe-knowledge/styles/titles/STYLE.md)、[默片字卡](skills/vibe-knowledge/styles/silent/STYLE.md)、[构成主义蒙太奇](skills/vibe-knowledge/styles/constructivist/STYLE.md) |
 
-「增强」= 需要 Renoise 生图（约 8 积分 / 段），其余全部代码生成、0 积分。给出选题后，`recommend.py` 会推荐 3 套风格；你也可以从空白开始定一套自己的风格（`references/09-style-studio.md`）。
+「增强」= 需要 generate_image 生图（每段约 2 张），其余全部代码生成、0 费用。给出选题后，`recommend.py` 会推荐 3 套风格；你也可以从空白开始定一套自己的风格（`references/09-style-studio.md`）。
 
 ## 听一听：默认 BGM
 
@@ -78,38 +78,26 @@ Claude Code skill：选题 → 查证 → 写稿 → 配音 → 代码成片 →
 | **确认 1** | 选题、6 种母版之一、**时长**（按复杂度给四档：速览 / 精讲 / 标准 / 深挖，每档写清能讲多细、要砍掉什么）、风格、档位 |
 | ② 查 | 事实清单 `facts.md`：每个数字、人名、年份、引文都有出处；说法有分歧时两说并列 |
 | ③ 写 | 按母版写旁白 → 子 agent 对抗审查（钩子、出处、字数）→ 改 |
-| **确认 2** | 看旁白稿 + 分镜（增强档附带镜头清单和 Renoise 报价），同意后才生成 |
+| **确认 2** | 看旁白稿 + 分镜（增强档附带镜头清单、提示词和报价），同意后才生成 |
 | ④ 配音 | BreezeCast 本机设计音色 + Murmur 本机逐字对齐 + 回读校验 + 人声后期 |
 | ⑤ 编 | `film.js`：组件库 `know.js`（配图推拉、逐帧视频、关键词、计数器、竖排古文、出处脚注、两难按钮、印章、线稿剖面图…）|
 | ⑥ 渲 | 1080p60 逐帧录制 → 混音（强制 BGM、按人声校准）→ 封面接成开头帧 |
 | ⑦ 质检 | 接触表 + OCR 回读对照 facts.md + 响度 + 冻结检测 + BGM 检测 |
 | **确认 3** | 看成片 → 发布包（标题、话题、简介、封面） |
 
-**两档制作**：基础档 0 积分（Opus 手写 SVG 分层插画、粒子、数据组件）；增强档只把代码做不好的镜头（写实场景、最需要被记住的 1–3 个时刻）交给 Renoise，每次先报价、你同意了才生成。同一份 film.js 两档通用。
+**两档制作**：基础档 0 费用（Opus 手写 SVG 分层插画、粒子、数据组件）；增强档只把代码做不好的镜头（写实场景、最需要被记住的 1–3 个时刻）交给生图和动态镜头，每次先报价、你同意了才生成。同一份 film.js 两档通用。
 
 **六种母版**：猜谜概念片、两难选择片、痛点原理片、一条主线片、闯关片、六面轮转片（`references/01-templates.md`）。
 
-## Renoise：增强档的生成平台
+## 增强档：生图、动态镜头、音效
 
-**[Renoise](https://renoise.ai/mcp?utm_medium=xcom&utm_source=official)** 是一个 AI 视频、图片、音频生成平台，通过 MCP 直接接进 Claude Code、Codex 等 Agent。一个账号就能用 Midjourney、GPT Image、Nano Banana、Seedance 2.5、Wan 3.0、Kling、Grok Video、Lyria、ElevenLabs 音效等模型，在对话里直接生成。
+增强档只负责代码做不好的那几个镜头：写实的时代场景配图、最需要被记住的 1–3 个动态镜头、个别音效。其余画面照样用代码画。**基础档完全不需要下面这些，0 费用就能出片。**
 
-在 vibe-knowledge 里，Renoise 只负责**增强档**里代码做不好的那几个镜头：写实的时代场景配图、最需要被记住的 1–3 个动态镜头、个别音效。其余画面照样用代码画。**基础档完全不需要 Renoise，0 积分就能出片。**
-
-- **先报价、你点头才生成**：每一期都会把要生成的镜头、模型、提示词和 `estimate_cost` 总价列给你，你在对话里明确同意才提交。
-- **花多少心里有数**：第 01 期《商鞅立木》增强版用了 246 积分（10 张 Midjourney 配图 + 2 个 Wan 动态镜头 + 配乐 + 5 个音效）；增强档一般在轻 ≈25–40 / 标准 ≈250–300 / 旗舰 ≈600–700 积分。
-- **片中标注**：Renoise 生成的画面都会标「AI 示意」。
-
-**还没有账号？先到 [renoise.ai](https://renoise.ai/mcp?utm_medium=xcom&utm_source=official) 注册**。登录都在浏览器里完成，不用复制任何 API key。然后按你用的 Agent 接入：
-
-| 用的是 | 怎么接 |
-|---|---|
-| **Claude Code** | 依次输入 `/plugin marketplace add ArcoCodes/renoise-plugins-official`、`/plugin install renoise@renoise-plugins-official`，首次调用时浏览器登录 |
-| **Claude 桌面端 / claude.ai** | 设置 → 连接器 → **Add custom connector** → 名称 `Renoise`，地址 `https://renoise.ai/api/public/mcp` |
-| **Codex** | `codex mcp add renoise --url https://renoise.ai/api/public/mcp`，再 `codex mcp login renoise` |
-| **OpenClaw** | `openclaw plugins install renoise --marketplace ArcoCodes/renoise-plugins-official` |
-| **WorkBuddy、Cursor、Windsurf、Cline、豆包、千问、纳米Work……** | 添加远程 MCP 服务器，地址 `https://renoise.ai/api/public/mcp`（常见配置：`{"mcpServers":{"renoise":{"url":"https://renoise.ai/api/public/mcp"}}}`） |
-
-官方最新装法：[renoise.ai/plugin](https://renoise.ai/plugin)。装好后问 Agent 一句「查一下我的 Renoise 余额」，能查到就接通了。
+- **配图**：omp 内置的 `generate_image`，用 omp 里配置的图像模型生成，每段约 2 张。
+- **动态镜头**：omp 的 `xai_generate_video`（xAI Grok Imagine），按输出秒数和分辨率计费：默认 `grok-imagine-video` 720p $0.07/秒（实测 8 秒一条 $0.56），更贵的 `grok-imagine-video-1.5` 720p $0.14/秒、1080p $0.25/秒（2026-11-17 价格，以 [xAI 官方模型页](https://docs.x.ai/developers/models)为准）。
+- **音效**：本机 Songhearth，`tools/gen_sfx.py` 按 assets.json 批量生成，0 费用、无需密钥。
+- **先报价、你点头才生成**：每一期都会把要生成的镜头、提示词、视频秒数 × 单价列给你，你在对话里明确同意才开始任何付费生成。
+- **片中标注**：AI 生成的画面都会标「AI 示意」。
 
 ## 安装
 
@@ -123,7 +111,7 @@ cp -R vibe-knowledge/skills/vibe-knowledge vibe-knowledge/skills/ai-teardown ~/.
 - `ffmpeg`；OCR 质检用 macOS 自带的 Vision（需要 `swiftc`）。
 - 配音：本机 BreezeCast（BreezeTTS 2，不需要任何密钥，0 费用）。要求：BreezeCast 已打开、引擎就绪、已装一个 BreezeTTS 2 模型（默认 `breeze_tts_2_q8_0`，5.1 GB，在 App 里下载）；另需本机 Murmur（逐字对齐与回读，Qwen3-ASR 模型，也不需要密钥）：App 已打开，「API 接口」页启用 API 服务（127.0.0.1:7895），并加载一个带词级时间戳的模型。Murmur 必须和脚本在同一台 Mac 上（传的是文件路径，不上传），每拍的转写会出现在 Murmur 的历史里。BreezeCast 在局域网另一台 Mac 上时：`export BREEZECAST_URL=http://<IP>:17860`。
 - 第一次用要先在你自己的 BreezeCast 里建好默认音色「AI博主沉稳男声」（仓库不带任何音频）：`python3 ~/.claude/skills/ai-teardown/engine/scripts/voice_audition.py ~/.claude/skills/vibe-knowledge/assets/voice/default-voice.json <试听目录>` 出几条候选，听完选一条，再加 `--save <take id> --name AI博主沉稳男声` 存成 BreezeCast 音色。想用自己的声音：先在 BreezeCast 里克隆（App 里操作，或 breezecast skill 的 `voice-clone --name X --audio ref.wav --ref-text "录音逐字稿"`；单人干净录音 3–20 秒，逐字稿要一字不差，只用你本人或已获授权的声音），再 `new_film.py … --voice X`。
-- 增强档（可选）：[Renoise MCP](https://renoise.ai/mcp?utm_medium=xcom&utm_source=official)，注册和接入见上面的 [Renoise](#renoise增强档的生成平台) 一节。
+- 增强档（可选）：需要在 omp 里运行（用到 `generate_image` 和 `xai_generate_video` 两个工具，xAI 密钥在 omp 里配置），并且本机 Songhearth 已装音效模型（`moss-soundeffect-v2` 或 `stable-audio-3-small-sfx`）。详见上面的 [增强档](#增强档生图动态镜头音效) 一节。
 
 然后在 Claude Code 里说：
 
